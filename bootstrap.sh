@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 # install packages -- mysql not really needed as we use sqllite right now
 # ruby is used for sass/compass
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby git
 
 echo ===========================
 echo Installing gems
@@ -55,17 +55,31 @@ ln  -s `pwd`/theme `pwd`/bolt/theme/mafmc
 
 fi
 
-echo ===========================
-echo Setting up node, bower pkgs
-echo ===========================
 
 cd theme
 # 
+echo ===========================
+echo Installing npm packages
+echo ===========================
 npm install
 
 # bower
-sudo npm install -g bower
-sudo -u vagrant bower install
+echo ===========================
+echo installing bower, grunt
+echo ===========================
+sudo npm install -g bower grunt-cli
+
+echo ===========================
+echo bower install
+echo ===========================
+HOME=/home/vagrant sudo -u vagrant bower install -V --config.interactive=false
+
+echo ===========================
+echo updating css
+echo ===========================
+sudo -u vagrant grunt compass
+
+
 
 echo ===========================
 echo Bolt should be up and running at http://localhost:10000/bolt
