@@ -3,7 +3,10 @@
 # install packages -- mysql not really needed as we use sqllite right now
 # ruby is used for sass/compass
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd npm ruby-full rubygems1.8 sass compass
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd npm ruby-full rubygems1.8
+
+sudo gem install  sass 
+sudo gem install compass
 
 # link shared folder to /var/www
 rm -rf /var/www
