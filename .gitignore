@@ -2,3 +2,4 @@ bolt
 *.sw*
 .vagrant
 **/.DS_Store
+index.html
