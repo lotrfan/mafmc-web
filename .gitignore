@@ -1,0 +1,4 @@
+bolt
+*.sw*
+.vagrant
+**/.DS_Store

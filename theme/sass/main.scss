@@ -1,0 +1,73 @@
+$font-stack:    Helvetica, sans-serif;
+$font-stack-secondary:    Georgia, serif;
+$primary-color:   rgb(191,96,65);
+$secondary-color: rgb(166,179,171);
+$nav-background-color: rgb(249,249,249);
+$background-color: rgb(242,242,242);
+
+.page {
+background-color:$background-color;
+}
+
+body {
+line-height: 200%;
+}
+
+.navbar-mafmc  { 
+  font-family:$font-stack;
+  font-weight:bold;
+  background-color:$nav-background-color;
+
+  min-height:100px;
+
+  li {
+    padding-right:20px;
+  }
+  a {
+    color:$primary-color;
+    padding-left:20px;
+  }
+
+  .nav li > a:hover{
+    color:$secondary-color;
+    background-color:$nav-background-color;
+  }
+
+}
+
+
+footer {
+  font-family: $font-stack-secondary;
+  background-color: $primary-color;
+  color: white;
+  
+  a {
+    color:white;
+  }
+
+.title { 
+  text-transform:uppercase;
+  font-family: $font-stack;
+  font-weight:bold;
+  letter-spacing:.15em;
+} 
+
+  .site-map {
+    em { 
+font-weight:bold;
+}
+  }
+
+  .regular { 
+
+  } 
+  ul {
+      padding:0px; margin:0px;
+      list-style-type:none;
+    li {
+      padding:0px; margin:0px;
+      font-family: $font-stack-secondary;
+    }
+  } 
+}
+
