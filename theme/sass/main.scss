@@ -1,4 +1,5 @@
 // Fix font path... 
+
 $icon-font-path: "../assets/fonts/bootstrap/";
 $grid-gutter-width: 20px;
 $container-large-desktop: (940px + $grid-gutter-width);
@@ -199,16 +200,17 @@ footer {
   letter-spacing:.15em;
 } 
 
-  .site-map {
-    em { 
-font-weight:bold;
-}
+.site-map {
+  em { 
+    font-weight:bold;
   }
+}
 
   .regular { 
 
   } 
-  ul {
+
+ul {
       padding:0px; margin:0px;
       list-style-type:none;
     li {
