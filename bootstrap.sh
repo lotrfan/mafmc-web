@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 # install packages -- mysql not really needed as we use sqllite right now
 # ruby is used for sass/compass
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby git
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby ruby-dev git
 
 echo ===========================
 echo Installing gems
