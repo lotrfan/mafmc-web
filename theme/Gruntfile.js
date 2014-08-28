@@ -12,6 +12,18 @@ module.exports = function(grunt) {
         dest: 'build/<%= pkg.name %>.min.js'
       }
     },
+      less: {
+              development: {
+                options: {
+                  paths: ["./css"],
+                  yuicompress: true
+                },
+              files: {
+                "./css/test-bootstrap.css": "./less/bootstrap.less"
+              }
+      }
+                                  },
+
   compass: {                  // Task
     dist: {                   // Target
       options: {              // Target options
@@ -31,8 +43,34 @@ module.exports = function(grunt) {
       css: {
         files: '**/*.scss',
         tasks: ['compass']
+      },
+      less: {
+        files: 'less/*.less',
+        tasks: ['less']
+      }
+    },
+
+    // run with 'grunt copy'
+    copy: {
+      main: {
+        files: [
+          // includes files within path
+          {expand: true, cwd: 'external/bootstrap-sass-official/assets/fonts/', src: ['**'],  dest: 'assets/fonts' },
+
+          // includes files within path and its sub-directories
+          // {expand: true, src: ['path/**'], dest: 'dest/'},
+
+          // makes all src relative to cwd
+          // {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+
+          // flattens results to a single level
+          // {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'}
+        ]
       }
     }
+
+
+
 
   });
 
@@ -47,12 +85,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   grunt.loadNpmTasks('grunt-contrib-compass');
 
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'sass', 'compass', 'watch']);
+  grunt.registerTask('default', ['copy', 'uglify', 'sass', 'compass', 'watch']);
 
 
 };

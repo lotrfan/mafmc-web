@@ -1,0 +1,9 @@
+
+      <ul class="nav navbar-nav navbar-right" style="padding-top:20px !important">
+
+{% for item in menu %}
+<li><a href="{{ item.path }}">{{ item.label }} </a></li>
+
+{% endfor %}
+
+</ul>

@@ -1,0 +1,23 @@
+
+/* From Chad */
+@font-face {
+    font-family: "fpt";
+    src: url("../assets/fonts/futura-pt-heavy.woff") format('woff');
+}
+
+$sans-serif-font: "fpt"; /*, Helvetica, sans-serif; */
+$serif-font-regular: "Merriweather" ,  serif; /* Merriweather regular */
+$serif-font-bold: "Merriweather" ,  serif; /* merriweather bold */
+
+$primary-color: #c65b3c;
+$secondary-color: #515151;
+$default-color: #888888;
+
+
+
+$font-stack:    Helvetica, sans-serif;
+$font-stack-secondary:    Georgia, serif;
+// $primary-color:   rgb(191,96,65);
+// $secondary-color: rgb(166,179,171);
+$nav-background-color: rgb(249,249,249);
+$background-color: rgb(242,242,242);

@@ -26,7 +26,7 @@ main:
     class: last
 
 # this is the site-map
-footer:
+sitemap:
   - label: Connect
     path: connect
     submenu:

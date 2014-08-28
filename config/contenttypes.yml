@@ -98,7 +98,11 @@ pages:
             type: slug
             uses: title
         image:
+            prefix: "<em>The hero image for the page.</em>"
             type: image
+        overlay:
+            type: select 
+            values: [red]
         teaser:
             type: html
             height: 150px

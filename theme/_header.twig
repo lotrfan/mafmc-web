@@ -3,8 +3,10 @@
 
 <head>
 
+<!--
     <link rel="stylesheet" href="{{ paths.theme }}external/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="{{ paths.theme }}external/normalize.css/normalize.css" />
+-->
 
     <link rel="stylesheet" href="{{ paths.theme }}css/main.css" />
 
@@ -59,25 +61,8 @@ glyphicons-halflings-regular.eot  glyphicons-halflings-regular.svg  glyphicons-h
       </form>
 -->
 
-      <ul class="nav navbar-nav navbar-right" style="padding-top:20px !important">
-        <li><a href="#">CONNECT</a></li>
-        <li><a href="#">GROW</a></li>
-        <li><a href="#">RESOURCES</a></li>
+{{ menu('sitemap', '_top_menu.twig') }} 
 
-<!--
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-
--->
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
