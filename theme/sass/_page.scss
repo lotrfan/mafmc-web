@@ -13,7 +13,6 @@ body p {
 /* Generic rules for any given page */
 .page-section {
 
-  border:1px solid black;
   /* a page-section is centered and has 100px of space below */
   margin-left:auto;
   margin-right:auto;
@@ -30,6 +29,10 @@ body p {
 
   h3 {
     @extend .headline2;
+  }
+
+  h4 {
+    @extend .subhead;
   }
 
   /* a section header - should contain a <h1> and a <p> */
