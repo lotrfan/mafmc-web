@@ -1,0 +1,38 @@
+/*
+ * The Hero image at the top
+ */
+.hero-div {
+  padding:0px;
+  margin:0px;
+  width:100%;
+  position:relative;
+
+  img {
+    max-width:100%;
+    opacity:0.2;
+    padding:0px;
+    margin:0px;
+  }
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    width:100%;
+    text-align:center;
+    letter-spacing:.3em;
+    font-size:36px;
+    -webkit-transform: translateY(-50%);
+    text-transform:uppercase;
+
+   color: $nav-background-color;
+   font-family: $sans-serif-font;
+}
+
+
+// See list in contenttypes.yml to choose these eventually
+.overlay-red {
+  background-color:rgb(191,96,65);
+    // filter: alpha(opacity=40); /* For IE8 and earlier */ 
+}
+

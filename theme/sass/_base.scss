@@ -1,0 +1,51 @@
+/* 
+ * Base element definitions from Chad
+ */
+
+.section_divider {
+   font-family: $sans-serif-font !important;
+   color: $primary-color;
+   font-weight:bold;
+   font-size:32px;
+   line-height:32px;
+   text-transform:uppercase;
+   letter-spacing:4px;;
+   /* letter-spacing: super-wide */
+}
+
+.section_description {
+   font-family: $serif-font-regular;
+   color: $secondary-color;
+   font-size:14px;
+   line-height:24px;
+}
+
+.headline1 {
+   color: $primary-color;
+   font-family: $serif-font-bold;
+   font-size:22px;
+   line-height:24px;
+}
+
+.headline2 {
+   color: $primary-color;
+   font-family: $sans-serif-font;
+   font-size:14px;
+   line-height:24px;
+   text-transform:uppercase;
+   /* letter-spacing: super wide */
+}
+
+.subhead {
+   color: $secondary-color;
+   font-family: $serif-font-bold;
+   font-size:14px;
+   line-height:24px;
+}
+
+.body_copy {
+   color: $default-color;
+   font-family: $serif-font-regular;
+   font-size:14px;
+   line-height:24px;
+}

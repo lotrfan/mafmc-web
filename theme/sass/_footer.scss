@@ -1,0 +1,39 @@
+/*
+ * The footer of the page -- contains the site map
+ */
+footer {
+  font-family: $serif-font-regular;
+  line-height:200%;
+  background-color: $primary-color;
+  color: white;
+  
+  a {
+    color:white;
+  }
+
+  .title { 
+    text-transform:uppercase;
+    font-family: $sans-serif-font;
+    font-weight:bold;
+    letter-spacing:.15em;
+  } 
+
+  .site-map {
+    em { 
+      font-weight:bold;
+    }
+  }
+  .regular { 
+
+  } 
+
+  ul {
+    padding:0px; margin:0px;
+    list-style-type:none;
+    li {
+      padding:0px; margin:0px;
+      font-family: $serif-font-regular;
+    }
+  } 
+}
+

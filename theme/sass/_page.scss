@@ -1,0 +1,50 @@
+/* 
+ * Generic rules 
+ */
+.page {
+  background-color:$background-color;
+}
+
+body p {
+  line-height: 150%;
+}
+
+
+/* Generic rules for any given page */
+.page-section {
+
+  border:1px solid black;
+  /* a page-section is centered and has 100px of space below */
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:100px;
+
+  /* Any h1 inside a page-section is a .section-divider */
+  h1 {
+    @extend .section_divider;
+  }
+
+  h2 {
+    @extend .headline1;
+  }
+
+  h3 {
+    @extend .headline2;
+  }
+
+  /* a section header - should contain a <h1> and a <p> */
+  .section-header {
+    @extend .container;
+    max-width:600px;
+    text-align:center;
+    p {
+      @extend .section_description;
+    }
+  }
+
+  /* Any less specific paragraph is just regular body-copy */
+  p {
+    @extend .body_copy;
+  }
+}
+

@@ -1,222 +1,27 @@
 // Fix font path... 
 
+/* Override Bootstrap defaults */
 $icon-font-path: "../assets/fonts/bootstrap/";
 $grid-gutter-width: 20px;
 $container-large-desktop: (940px + $grid-gutter-width);
 @import '../external/bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
 
+/* Import base variables -- colors, etc */
 @import 'variables';
 
 /* Google web font - merriweather */
 @import url(http://fonts.googleapis.com/css?family=Merriweather);
 
+/* Import base styles */
+@import 'base';
+@import 'nav';
+@import 'hero';
+@import 'footer';
+@import 'page';
 
-/* From Chad */
-.section_divider {
-   font-family: $sans-serif-font !important;
-   color: $primary-color;
-   font-size:32px;
-   line-height:24px;
-   text-transform:uppercase;
-   letter-spacing:4px;;
-   /* letter-spacing: super-wide */
-}
-
-.section_description {
-   font-family: $serif-font-regular;
-   color: $secondary-color;
-   font-size:14px;
-   line-height:24px;
-}
-
-.headline1 {
-   color: $primary-color;
-   font-family: $serif-font-bold;
-   font-size:22px;
-   line-height:24px;
-}
-
-.headline2 {
-   color: $primary-color;
-   font-family: $sans-serif-font;
-   font-size:14px;
-   line-height:24px;
-   text-transform:uppercase;
-   /* letter-spacing: super wide */
-}
-
-.subhead {
-   color: $secondary-color;
-   font-family: $serif-font-bold;
-   font-size:14px;
-   line-height:24px;
-}
-
-.body_copy {
-   color: $default-color;
-   font-family: $serif-font-regular;
-   font-size:14px;
-   line-height:24px;
-}
-
-
-/* OLD */
-
-
-
-.page {
-background-color:$background-color;
-}
-
-body p {
-line-height: 150%;
-}
-
-.navbar-mafmc  { 
-  font-family:$sans-serif-font;
-  font-weight:bold;
-  background-color:$nav-background-color;
-
-  min-height:100px;
-
-  li {
-    padding-right:20px;
-  }
-  a {
-    color:$primary-color;
-    padding-left:20px;
-    text-transform:uppercase;
-  }
-
-  .nav li > a:hover{
-    color:$secondary-color;
-    background-color:$nav-background-color;
-  }
-
-}
-
-.grow-page {
-  max-width:768px;
-  margin-left:auto;margin-right:auto;
-  margin-bottom:100px;
-  .grow-header {
-    font-family:$serif-font-regular;
-    h1 {
-      font-weight:bold;
-      color:$primary-color;
-    }
-    max-width:500px;
-    text-align:center;
-    margin-left:auto;margin-right:auto;
-    margin-bottom:70px;
-    p{
-      font-weight:bold;
-      }
-  }
-
-  .col-md-4 {
-    text-align:center;
-    h4 {
-      font-family:$sans-serif-font;
-      color:$primary-color;
-      text-transform:uppercase;
-      font-size:.8em;
-      font-weight:bold;
-    }
-    p {
-      font-family:serif;
-    }
-    button {
-      font-family:$sans-serif-font;
-      background-color: $primary-color;
-      color:white;
-      font-weight:bold;
-      font-size:.8em;
-      text-transform:uppercase;
-    }
-  }
-  hr {
-    width:200px;
-    background-color:grey;
-    height:1px;
-    margin-top:30px;
-    margin-bottom:30px;
-  }
-
-}
-
-
-.hero-div {
-  padding:0px;
-  margin:0px;
-  width:100%;
-  position:relative;
-
-  img {
-    max-width:100%;
-    opacity:0.2;
-    padding:0px;
-    margin:0px;
-  }
-
-  
-
-}
-
-  .overlay-text {
-    position: absolute;
-    top: 50%;
-    width:100%;
-    text-align:center;
-    color:white;
-    letter-spacing:.3em;
-    font-size:36px;
-    -webkit-transform: translateY(-50%);
-    text-transform:uppercase;
-  }
-
-// See list in contenttypes.yml
-.overlay-red {
-  background-color:rgb(191,96,65);
-
-    // filter: alpha(opacity=40); /* For IE8 and earlier */ 
-}
-
-
-footer {
-  font-family: $serif-font-regular;
-  line-height:200%;
-  background-color: $primary-color;
-  color: white;
-  
-  a {
-    color:white;
-  }
-
-.title { 
-  text-transform:uppercase;
-  font-family: $sans-serif-font;
-  font-weight:bold;
-  letter-spacing:.15em;
-} 
-
-.site-map {
-  em { 
-    font-weight:bold;
-  }
-}
-
-  .regular { 
-
-  } 
-
-ul {
-      padding:0px; margin:0px;
-      list-style-type:none;
-    li {
-      padding:0px; margin:0px;
-      font-family: $serif-font-regular;
-    }
-  } 
-}
-
+/*
+ * PAGE SPECIFIC CSS
+ *
+ * Add any page-specific CSS here.
+ */
+@import 'pages/grow';

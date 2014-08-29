@@ -1,0 +1,26 @@
+/* 
+ * Top Navigation Div 
+ */
+.navbar-mafmc  { 
+  background-color:$nav-background-color;
+  min-height:100px;
+
+  /* Nav menu items */
+  li {
+    padding-right:20px;
+    font-family:$sans-serif-font;
+    font-weight:bold;
+
+    /* Link behavior */
+    a {
+      color:$primary-color;
+      padding-left:20px;
+      text-transform:uppercase;
+    }
+    a:hover{
+      color:$secondary-color;
+      background-color:$nav-background-color;
+    }
+  }
+}
+
