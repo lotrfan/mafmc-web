@@ -49,5 +49,8 @@ body p {
   p {
     @extend .body_copy;
   }
+  ul {
+    @extend .body_copy;
+  }
 }
 
