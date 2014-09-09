@@ -1,0 +1,28 @@
+/* 
+ * the 'grow' page 
+ */
+.grow-page {
+
+  /* each item is a bootstrap .col-md-4 */
+  .col-md-4 {
+    text-align:center;
+    a.btn {
+      font-family:$sans-serif-font;
+      background-color: $primary-color;
+      color:white;
+      font-weight:bold;
+      font-size:.8em;
+      text-transform:uppercase;
+    }
+  }
+
+  /* hr to separate rows */
+  hr {
+    width:200px;
+    background-color:grey;
+    height:1px;
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+}
+
