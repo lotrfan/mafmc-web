@@ -1,0 +1,59 @@
+{% include '_header.twig' %}
+
+<div class="container-fluid hero-div overlay-{{ record.overlay }}" >
+<img src="{{ record.image|image() }}"  />
+<span class="overlay-text">resources</span>
+
+
+
+</div>
+
+
+<div class="page">
+<div class="container">
+
+<div class="page-section resources-page">
+
+<div class="row">
+<div class="col-md-4">
+<h3>Special Series</h3>
+<p>Each week we have differnet things going on. here you can see what those things are and get more info on it.</p>
+<a href="#" class="btn btn-default">Go</a>
+</div>
+<div class="col-md-4">
+<h3>Calendar</h3>
+<p>Every single event we've got going on for the weeks and months to come.</p>
+<a href="#" class="btn btn-default">Go</a>
+</div>
+<div class="col-md-4">
+<h3>Sermons</h3>
+<p>All of our past sermons are available to lisaten to online. Play them in your browser or download them straight to your device!</p>
+<a href="#" class="btn btn-default">Go</a>
+</div>
+</div>
+
+<hr />
+
+<div class="row">
+<div class="col-md-4">
+<h3>English Conversation</h3>
+<p>All are welcome to our native English-speaking volunteers.</p>
+<a href="#" class="btn btn-default">Go</a>
+</div>
+<div class="col-md-4">
+<h3>Giving</h3>
+<p>Online giving is available.</p>
+<a class="btn btn-default" href="http://donate.mattisave.org/">Go</a>
+</div>
+<div class="col-md-4">
+<h3>Praise Press</h3>
+<p>To request a copy of Praise Press, our monthly email newsletter, contact Helen Kaufmann</p>
+<a href="#" class="btn btn-default">Link</a>
+</div>
+</div>
+
+</div><!-- end page-section -->
+</div><!-- end container -->
+</div><!-- end page -->
+
+{% include '_footer.twig' %}

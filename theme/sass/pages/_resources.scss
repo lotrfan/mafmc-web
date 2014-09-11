@@ -1,7 +1,9 @@
 /* 
- * the 'grow' page 
+ * the 'resources' page 
  */
-.grow-page {
+
+/* FIXME: Identical to 'grow' page currently' */
+.resources-page {
 
   /* each item is a bootstrap .col-md-4 */
   .col-md-4 {
@@ -11,12 +13,15 @@
       background-color: $primary-color;
       color:white;
       font-weight:bold;
+      width:120px;
       font-size:.8em;
       text-transform:uppercase;
+
 
       -webkit-border-radius: 40px;
       -moz-border-radius: 40px;
       border-radius: 40px;
+
     }
   }
 
@@ -29,4 +34,5 @@
     margin-bottom:30px;
   }
 }
+
 
