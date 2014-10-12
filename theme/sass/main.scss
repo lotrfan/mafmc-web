@@ -22,6 +22,7 @@ $container-large-desktop: (940px + $grid-gutter-width);
 /*
  * PAGE SPECIFIC CSS
  *
- * Add any page-specific CSS here.
+ * Add any page-specific CSS here!
  */
 @import 'pages/grow';
+@import 'pages/resources';
