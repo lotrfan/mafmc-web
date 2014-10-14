@@ -11,46 +11,13 @@ namespace MafmcPodcast;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
-define('SERMON_LIST_NUM_COLUMNS', 5);
-
-# See http://www.php.net/manual/en/function.date.php
-define('SERMON_LIST_DATE_FORMAT_SHORT', 'F j'); # F j = January 13, May 3, etc.
-define('SERMON_LIST_DATE_FORMAT_LONG', 'F j Y'); # F j Y = January 13 2013, May 3 2010, etc.
-
 define('SERMON_LIST_BASE', 'sermons/data'); # Relative to extension root
-
 define('SERMON_LIST_CACHE', 'cache.html'); # (Relative to SERMON_LIST_BASE)
 define('SERMON_LIST_CACHE_PODCAST', 'podcast.cache.xml'); # (Relative to SERMON_LIST_BASE)
 define('SERMON_LIST_CACHE_INVALID', 'lastUpload.txt'); # (Relative to SERMON_LIST_BASE). Should be updated each time a file is uploaded (signals a rebuild of the cache)
 
-
-
 class Extension extends \Bolt\BaseExtension
 {
-
-
-        private $sermon_list_cols = array(
-                        'date',
-                        'title',
-                        'scripture',
-                        'download',
-                        'audio',
-                        'newrow',
-                        '5-speaker',
-                        'newrow',
-                        '5-description'
-                        );
-
-        private $sermon_list_col_titles = array(
-                        'date' => 'Date',
-                        'title' => 'Title',
-                        'speaker' => 'Speaker',
-                        'scripture' => 'Scripture',
-                        'audio' => '',
-                        'download' => ''
-                        );
-
 
     public function info()
     {
@@ -99,15 +66,15 @@ class Extension extends \Bolt\BaseExtension
         $this->addCSS("external/mediaelement/build/mediaelementplayer.min.css");
         $this->addCSS("css/sermon_list.css");
 
-        // example...
-        $color = $this->config['color'];
+        // example of accessing config; unused
+        // $color = $this->config['color'];
 
         $sermons_basepath = $this->basepath . '/' . SERMON_LIST_BASE;
 
         $cache_path = $sermons_basepath . '/' . SERMON_LIST_CACHE;
         $iv_path = $sermons_basepath . '/' . SERMON_LIST_CACHE_INVALID;
 
-        # return cached file if possible
+        // return cached file if possible
         if (file_exists($iv_path) && file_exists($cache_path)) {
             $cache_time = filemtime($cache_path);
             if (filemtime(__FILE__) < $cache_time && filemtime($iv_path) < $cache_time) {
@@ -122,10 +89,11 @@ class Extension extends \Bolt\BaseExtension
         # filter out those which don't have files
         $sermons = array_filter($sermons, function(&$v)  use($sermons_basepath) {
             $result = !(!$v['audio'] || !file_exists($sermons_basepath . '/' . $v['audio']));
-            error_log($sermons_basepath . "----" . (int)($result));
             return !(!$v['audio'] || !file_exists($sermons_basepath . '/' . $v['audio']));
         });
         $sermons = array_values($sermons);
+
+        // FIXME: We shouldn't have to hardcode the path here
         array_walk($sermons, function(&$v, $k) {
             $v['audio'] = '/bolt/app/extensions/MafmcPodcast/sermons/data/' . $v['audio'];
         });
@@ -133,30 +101,11 @@ class Extension extends \Bolt\BaseExtension
 
         $this->app['twig.loader.filesystem']->addPath(__DIR__, 'MafmcSermons');
         $html = $this->app['render']->render("@MafmcSermons/sermons-template.twig", array(
-            'sermons' => $sermons,
-            'aggr' => $aggr,
-            'pageviews' => $pageviews,
-            'sources' => $sources,
-            'pages' => $pages
+            'sermons' => $sermons
         ));
 
+       // FIXME: add caching
        return new \Twig_Markup($html, 'UTF-8');
-
-
-
-
-
-
-
-
-
-        $l = var_export($sermons, true);
-
-        $html = <<< EOM
-$basepath ................... sermon list $l $color .... 
-EOM;
-
-        return new \Twig_Markup($html, 'UTF-8');
 
     }
 
