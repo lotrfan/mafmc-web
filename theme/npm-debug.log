@@ -1,0 +1,92 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'bootstrap-sass-official' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink /usr/bin/node
+5 warn package.json my-project-name@0.1.0 No description
+6 warn package.json my-project-name@0.1.0 No repository field.
+7 warn package.json my-project-name@0.1.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'bootstrap-sass-official', null ]
+10 verbose cache add name=undefined spec="bootstrap-sass-official" args=["bootstrap-sass-official",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'bootstrap-sass-official',
+11 verbose parsed url   path: 'bootstrap-sass-official',
+11 verbose parsed url   href: 'bootstrap-sass-official' }
+12 silly lockFile 16295992-bootstrap-sass-official bootstrap-sass-official
+13 verbose lock bootstrap-sass-official /home/vagrant/.npm/16295992-bootstrap-sass-official.lock
+14 silly lockFile 16295992-bootstrap-sass-official bootstrap-sass-official
+15 silly lockFile 16295992-bootstrap-sass-official bootstrap-sass-official
+16 verbose addNamed [ 'bootstrap-sass-official', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile ac85c0d0-bootstrap-sass-official bootstrap-sass-official@
+19 verbose lock bootstrap-sass-official@ /home/vagrant/.npm/ac85c0d0-bootstrap-sass-official.lock
+20 silly addNameRange { name: 'bootstrap-sass-official', range: '*', hasData: false }
+21 verbose request where is /bootstrap-sass-official
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id 052e4dfb2822abca
+24 verbose url raw /bootstrap-sass-official
+25 verbose url resolving [ 'https://registry.npmjs.org/', './bootstrap-sass-official' ]
+26 verbose url resolved https://registry.npmjs.org/bootstrap-sass-official
+27 verbose request where is https://registry.npmjs.org/bootstrap-sass-official
+28 info trying registry request attempt 1 at 03:58:35
+29 http GET https://registry.npmjs.org/bootstrap-sass-official
+30 http 404 https://registry.npmjs.org/bootstrap-sass-official
+31 verbose headers { date: 'Thu, 28 Aug 2014 03:58:41 GMT',
+31 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 verbose headers   'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=0',
+31 verbose headers   'content-length': '52',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   age: '0',
+31 verbose headers   'x-served-by': 'cache-ord1726-ORD',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1409198321.619319,VS0,VE161',
+31 verbose headers   'keep-alive': 'timeout=10, max=50',
+31 verbose headers   connection: 'Keep-Alive' }
+32 silly registry.get cb [ 404,
+32 silly registry.get   { date: 'Thu, 28 Aug 2014 03:58:41 GMT',
+32 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'cache-control': 'max-age=0',
+32 silly registry.get     'content-length': '52',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     age: '0',
+32 silly registry.get     'x-served-by': 'cache-ord1726-ORD',
+32 silly registry.get     'x-cache': 'MISS',
+32 silly registry.get     'x-cache-hits': '0',
+32 silly registry.get     'x-timer': 'S1409198321.619319,VS0,VE161',
+32 silly registry.get     'keep-alive': 'timeout=10, max=50',
+32 silly registry.get     connection: 'Keep-Alive' } ]
+33 silly lockFile ac85c0d0-bootstrap-sass-official bootstrap-sass-official@
+34 silly lockFile ac85c0d0-bootstrap-sass-official bootstrap-sass-official@
+35 error 404 404 Not Found: bootstrap-sass-official
+35 error 404
+35 error 404 'bootstrap-sass-official' is not in the npm registry.
+35 error 404 You should bug the author to publish it
+35 error 404 It was specified as a dependency of 'my-project-name'
+35 error 404
+35 error 404 Note that you can also install from a
+35 error 404 tarball, folder, or http url, or git url.
+36 error System Linux 3.13.0-34-generic
+37 error command "/usr/bin/node" "/usr/bin/npm" "install" "--save-dev" "bootstrap-sass-official"
+38 error cwd /vagrant/theme
+39 error node -v v0.10.31
+40 error npm -v 1.4.23
+41 error code E404
+42 verbose exit [ 1, true ]

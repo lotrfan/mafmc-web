@@ -1,9 +1,15 @@
 /* 
+<<<<<<< HEAD
+ * the 'grow' page 
+ */
+.grow-page {
+=======
  * the 'resources' page 
  */
 
 /* FIXME: Identical to 'grow' page currently' */
 .resources-page {
+>>>>>>> FETCH_HEAD
 
   /* each item is a bootstrap .col-md-4 */
   .col-md-4 {
@@ -13,6 +19,10 @@
       background-color: $primary-color;
       color:white;
       font-weight:bold;
+<<<<<<< HEAD
+      font-size:.8em;
+      text-transform:uppercase;
+=======
       width:120px;
       font-size:.8em;
       text-transform:uppercase;
@@ -22,6 +32,7 @@
       -moz-border-radius: 40px;
       border-radius: 40px;
 
+>>>>>>> FETCH_HEAD
     }
   }
 
@@ -35,4 +46,7 @@
   }
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> FETCH_HEAD
