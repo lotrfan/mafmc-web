@@ -1,0 +1,6 @@
+api_information:
+  password: api-key-password
+  application_name: api-app-id
+  application_email: api-app-email
+  keyfile: gcal-key.p12
+  application_user: app-doas-user
