@@ -1,0 +1,61 @@
+<!--[if lte IE 7 ]>
+<div class="sermons-oldie">
+<![endif]-->
+
+<div id="sermons-wrapper">
+    {% if sermons|length > 0 %}
+
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        #sermons .sermon-series .sermon-series-title-row.scroll-to-fixed-fixed {
+           filter: none;
+        }
+    </style>
+    <![endif]-->
+
+    <div id="audio_player-wrapper">
+        <div id="sermon-now-playing">
+            <span id="sermon-now-playing-title">{{ sermons[0].title }} </span>
+            <span id="sermon-now-playing-speaker">{{ sermons[0].speaker }}</span>
+            <span id="sermon-now-playing-date">
+                <span id="sermon-now-playing-month">{{ sermons[0].date | date("M") }}</span>
+                <span id="sermon-now-playing-day">{{ sermons[0].date | date("j") }}</span>,
+                <span id="sermon-now-playing-year">{{ sermons[0].date | date("Y") }}</span>,
+            </span>
+        </div>
+        <div id="audio_player">
+            <!-- FIXME: don't hard-code path -->
+            <audio src="{{ sermons[0].audio }}" type="audio/mpeg" preload="auto" controls="true" />
+        </div>
+    </div>
+
+    <div id="sermons">
+        {% for sermon in sermons %}
+        <div class="sermon" id="sermon-{{ sermon.id }}">
+            <div class="sermon-date">
+                <div class="sermon-date-day">{{ sermon.date | date("d") }}</div>
+                <div class="sermon-date-month">{{ sermon.date | date("M") }}</div>
+                <div class="sermon-date-year">{{ sermon.date | date("Y") }}</div>
+                <div class="sermon-buttons">
+                    <a class="sermon-play" href="javascript:play('{{ sermon.audio }}', 'sermon-{{ sermon.id }}')"></a>
+                    <a class="sermon-download" href="{{ sermon.audio }}" target="_blank"></a>
+                </div>
+            </div>
+            <div class="sermon-meta">
+                <div class="sermon-title">{{ sermon.title }} </div>
+                <div class="sermon-scripture">{{ sermon.scripture }} </div>
+                <div class="sermon-speaker"> {{ sermon.speaker }} </div>
+                <div class="sermon-description">{{ sermon.description }} </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> <!-- #sermons -->
+
+    {% else %}
+    <h2>No sermons found.</h2>
+    {% endif %}
+</div> <!-- sermons-wrapper -->
+
+<!--[if lte IE 7 ]>
+</div>
+<![endif]-->

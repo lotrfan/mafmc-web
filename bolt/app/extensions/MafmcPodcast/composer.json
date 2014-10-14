@@ -1,0 +1,6 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+      "phansys/getid3": "2.1.*@dev"
+    }
+}
