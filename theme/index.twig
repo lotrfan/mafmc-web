@@ -1,5 +1,29 @@
 {% include '_header.twig' %}
 
+{# commented... 
+{{ calendar('frontpage') }} 
+#}
+
+{#
+<div>
+{% for event in calendar('frontpage') %}
+<div style="background-color:#eeeeee;">
+<h1> {{ event.summary }} </h1>
+<h3> {{ event.location }} </h3>
+<h4> {{ event.start.dateTime }} -> {{ event.end.dateTime }} </h4>
+<p> {{ event.description }} </p>
+</div>
+{% endfor %}
+</div>
+#}
+
+{#
+{{ sermons() }} 
+#}
+
+
+...
+
 <div class="container-fluid hero-div overlay-{{ record.overlay }}" >
 
 
@@ -39,6 +63,7 @@
 
 
 <div class="page-section grow-page">
+
 
 <div class="section-header">
 <h1>Grow Your Community</h1>
