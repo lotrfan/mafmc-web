@@ -43,8 +43,8 @@ echo Setting up Bolt
 echo ===========================
 # download bolt distribution
 cd /vagrant/
-if [ ! -d bolt ]; then
-mkdir bolt
+if [ ! -f bolt/index.php ]; then
+mkdir -p bolt
 cd bolt
 echo "Downloading bolt..."
 wget http://bolt.cm/distribution/bolt_latest.tgz -O - | tar -xzvf  -
@@ -78,6 +78,19 @@ echo ===========================
 echo updating css
 echo ===========================
 sudo -u vagrant grunt compass
+
+echo ===========================
+echo installing composer
+echo ===========================
+sudo wget https://getcomposer.org/composer.phar -O /usr/local/bin/composer.phar
+sudo chmod 755 /usr/local/bin/composer.phar
+
+echo ===========================
+echo installing extension dev files
+echo ===========================
+cd /vagrant/bolt/app/extensions/MafmcCalendar
+/usr/local/bin/composer.phar install
+cd -
 
 
 
