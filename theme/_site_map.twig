@@ -1,11 +1,11 @@
 {% for item in menu %}
 <div class="col-md-3" style="padding-left:0px;">
-<em>{{ item.label }} </em>
+<em><a href="{{ item.link }}">{{ item.label }}</a></em>
 
 <ul> 
 {% for submenu in item.submenu %}
 
-<li> {{ submenu.label }} </li>
+<li> <a href="{{submenu.link}}">{{ submenu.label }}</a> </li>
 {% endfor %}
 
 </ul>
