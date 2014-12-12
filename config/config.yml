@@ -166,7 +166,7 @@ strict_variables: false
 # instruct them thoroughly on their responsibility not to break the layout.
 wysiwyg:
   images: true
-  anchor: false
+  anchor: true
   tables: true
   fontcolor: false
   align: false
