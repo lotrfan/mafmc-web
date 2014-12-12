@@ -28,41 +28,41 @@ main:
 # this is the site-map
 sitemap:
   - label: Connect
-    path: connect
+    path: page/connect
     submenu:
       - label: "Time & Location"
-        path: "connect#time"
+        path: "page/connect#time"
       - label: What We Believe
-        path: "connect#believe"
+        path: "page/connect#believe"
       - label: Worship
-        path: "connect#worship"
+        path: "page/connect#worship"
       - label: Staff
-        path: "connect#staff"
+        path: "page/connect#staff"
   - label: Grow
-    path: grow
+    path: page/grow
     submenu:
       - label: "Life Stage"
-        path: "grow#life-stage"
+        path: "page/grow#life-stage"
       - label: "Faith @ Home"
-        path: "grow#faith-at-home"
+        path: "page/grow#faith-at-home"
       - label: Ways We Serve
-        path: "grow#ways-we-serve"
+        path: "page/grow#ways-we-serve"
       - label: Volunteer
-        path: "grow#volunteer"
+        path: "page/grow#volunteer"
       - label: Give
-        path: "grow#give"
+        path: "page/grow#give"
       - label: Learning
-        path: "grow#learning"
+        path: "page/grow#learning"
   - label: Resources
-    path: resources
+    path: page/resources
     submenu:
       - label: Special Series
-        path: "resources#special-series"
+        path: "page/resources#special-series"
       - label: "Making Room"
-        path: "resources#making-room"
+        path: "page/resources#making-room"
       - label: "English Conversations"
-        path: "resources#english-conversations"
+        path: "page/resources#english-conversations"
       - label: "Praise Press"
-        path: "resources#praise-press"
+        path: "page/resources#praise-press"
       - label: "Calendar"
-        path: "resources#calendar"
+        path: "page/resources#calendar"
