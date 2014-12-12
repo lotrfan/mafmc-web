@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 # install packages -- mysql not really needed as we use sqllite right now
 # ruby is used for sass/compass
 apt-get update
-apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby ruby-dev git
+apt-get install -y apache2 libapache2-mod-php5 php5 php5-sqlite php5-mysql php-pear php-apc php5-curl php5-gd nodejs ruby ruby-dev git unzip
 
 echo ===========================
 echo Installing gems
@@ -92,6 +92,19 @@ cd /vagrant/bolt/app/extensions/MafmcCalendar
 /usr/local/bin/composer.phar install
 cd -
 
+echo ==============================
+echo installing div plugin for Bolt -- see http://ckeditor.com/addon/div
+echo ==============================
+
+cd /vagrant
+wget http://download.ckeditor.com/div/releases/div_4.4.6.zip
+unzip div_4.4.6.zip
+mv div bolt/app/view/lib/ckeditor/plugins
+
+# this needs to be tested...
+sed -i "s/\(config.extraPlugins = .*\)'\1,div'" bolt/app/view/js/bolt.js
+sed -i "s/\(.*paragraph.*NumberedList.*)]/\1, 'CreateDiv']/" bolt/app/view/js/bolt.js
+cd -
 
 
 echo ===========================
