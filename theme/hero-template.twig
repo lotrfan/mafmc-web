@@ -1,0 +1,20 @@
+{% include '_header.twig' %}
+
+<div class="container-fluid hero-div overlay-{{ record.overlay }}" >
+  <img src="{{ record.image|image() }}"  />
+  <span class="overlay-text">{{record.title}}</span>
+</div>
+
+<div class="page">
+  <div class="container">
+    <div class="page-section {{ record.values.class }}">
+
+      {% autoescape false %}
+      {{ record.values.body }} 
+      {% endautoescape %}
+
+    </div><!-- end page-section -->
+  </div><!-- end container -->
+</div><!-- end page -->
+
+{% include '_footer.twig' %}

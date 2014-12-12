@@ -10,6 +10,31 @@
 
     <link rel="stylesheet" href="{{ paths.theme }}css/main.css" />
 
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{paths.theme}}favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{paths.theme}}favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{paths.theme}}favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{paths.theme}}favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{paths.theme}}favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{paths.theme}}favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{paths.theme}}favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{paths.theme}}favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{paths.theme}}favicons/apple-touch-icon-180x180.png">
+    <meta name="apple-mobile-web-app-title" content="MAFMC">
+    <link rel="shortcut icon" href="{{paths.theme}}favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="{{paths.theme}}favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{paths.theme}}favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="{{paths.theme}}favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{paths.theme}}favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{paths.theme}}favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-TileImage" content="{{paths.theme}}favicons/mstile-144x144.png">
+    <meta name="msapplication-square70x70logo" content="{{paths.theme}}favicons/mstile-70x70.png">
+    <meta name="msapplication-square150x150logo" content="{{paths.theme}}favicons/mstile-150x150.png">
+    <meta name="msapplication-square310x310logo" content="{{paths.theme}}favicons/mstile-310x310.png">
+    <meta name="msapplication-wide310x150logo" content="{{paths.theme}}favicons/mstile-310x150.png">
+    <meta name="application-name" content="MAFMC">
+
 <!-- 
 external/bootstrap/dist/fonts/:
 glyphicons-halflings-regular.eot  glyphicons-halflings-regular.svg  glyphicons-halflings-regular.ttf  glyphicons-halflings-regular.woff
@@ -28,30 +53,9 @@ glyphicons-halflings-regular.eot  glyphicons-halflings-regular.svg  glyphicons-h
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="{{ paths.theme }}img/Logo-Large.png" alt="MAFMC Logo" style="max-height:80px;"/></a>
+      <a class="navbar-brand" href="{{paths.root}}"><img src="{{ paths.theme }}img/Logo-Large.png" alt="MAFMC Logo" style="max-height:80px;"/></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-<!--
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav" >
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-
--->
 <!--
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -61,7 +65,7 @@ glyphicons-halflings-regular.eot  glyphicons-halflings-regular.svg  glyphicons-h
       </form>
 -->
 
-{{ menu('sitemap', '_top_menu.twig') }} 
+      {{ menu('sitemap', '_top_menu.twig') }} 
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
