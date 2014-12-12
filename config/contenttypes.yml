@@ -94,6 +94,9 @@ pages:
         title:
             type: text
             class: large
+        class:
+            type: select
+            values: [life-stage-page, faith-at-home-page, grow-page, ways-we-serve-page, ministry-teams-page, connect-page, resources-page, default-page]
         slug:
             type: slug
             uses: title
@@ -102,10 +105,7 @@ pages:
             type: image
         overlay:
             type: select 
-            values: [red]
-        teaser:
-            type: html
-            height: 150px
+            values: [red, green, blue]
         body:
             type: html
             height: 300px
