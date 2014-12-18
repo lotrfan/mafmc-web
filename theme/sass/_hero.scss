@@ -16,17 +16,17 @@
 }
 
 .overlay-text {
-    position: absolute;
-    top: 50%;
-    width:100%;
-    text-align:center;
-    letter-spacing:.3em;
-    font-size:36px;
-    -webkit-transform: translateY(-50%);
-    text-transform:uppercase;
-
+   position: absolute;
+   top: 50%;
+   width:100%;
+   text-align:center;
+   letter-spacing:.3em;
+   font-size:36px;
+   -webkit-transform: translateY(-50%);
+   text-transform:uppercase;
    color: $nav-background-color;
    font-family: $sans-serif-font;
+   font-weight:800;
 }
 
 

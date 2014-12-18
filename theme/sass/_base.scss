@@ -5,7 +5,7 @@
 .section_divider {
    font-family: $sans-serif-font !important;
    color: $primary-color;
-   font-weight:bold;
+   font-weight:800;
    font-size:32px;
    line-height:32px;
    text-transform:uppercase;
@@ -34,6 +34,16 @@
    font-size:14px;
    line-height:24px;
    text-transform:uppercase;
+   font-weight:800;
+   /* letter-spacing: super wide */
+}
+
+.headline3 {
+   color: $primary-color;
+   font-family: $serif-font-bold;;
+   font-weight:800;
+   font-size:16px;
+   line-height:24px;
    /* letter-spacing: super wide */
 }
 
@@ -51,3 +61,12 @@
    font-size:14px;
    line-height:24px;
 }
+
+.light {
+  color: $light-color;
+}
+
+a {
+  color: $primary-color;
+}
+

@@ -11,6 +11,7 @@ $container-large-desktop: (940px + $grid-gutter-width);
 
 /* Google web font - merriweather */
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,900);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:800,400);
 
 /* Import base styles */
 @import 'base';
@@ -26,3 +27,4 @@ $container-large-desktop: (940px + $grid-gutter-width);
  */
 @import 'pages/grow';
 @import 'pages/resources';
+@import 'pages/home';

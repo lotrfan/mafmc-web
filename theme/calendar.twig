@@ -1,0 +1,37 @@
+{% include '_header.twig' %}
+
+<div class="container-fluid hero-div overlay-{{ record.overlay }}" >
+  <img src="{{ record.image|image() }}"  />
+  <span class="overlay-text">{{record.title}}</span>
+</div>
+
+<div class="page">
+  <div class="container">
+    <div class="page-section {{ record.values.class }}">
+
+<div class="section-header">
+<h1>Calendar</h1>
+<p>Find out about all the upcoming events at the church!</p>
+</div>
+
+<div>
+{% for event in calendar('frontpage') %}
+<div >
+<h2> {{ event.summary }} </h2>
+{% set loc = event.location | preg_split("|, (?=\\d)|", 2) %}
+<h4> {{ event.start.dateTime|date("m/d/Y / g:ia", "America/Chicago") }}, at <em><a href="http://maps.google.com/?q={{ loc[1] }}">{{ loc[0] }}</a></em></h4>
+<p> {{ event.description }} </p>
+</div>
+{% if loop.last == false %}
+<hr />
+{%  endif %}
+{% endfor %}
+</div>
+
+
+    </div><!-- end page-section -->
+  </div><!-- end container -->
+</div><!-- end page -->
+
+{% include '_footer.twig' %}
+

@@ -1,31 +1,5 @@
 # This file defines the menus on the website. See the documentation for
 # details: http://docs.bolt.cm/menus
-
-main:
-  - label: Home
-    title: This is the first menu item.
-    path: homepage
-    class: first
-  - label: Second item
-    path: entry/1
-    submenu:
-      - label: Sub 1
-        path: entry/2
-      - label: Sub 2
-        class: menu-item-class
-        path: entry/3
-      - label: Sub 3
-        path: entry/4
-      - label: Sub 4
-        class: sub-class
-        path: page/3
-  - label: All pages
-    path: pages/
-  - label: The Bolt site
-    link: http://bolt.cm
-    class: last
-
-# this is the site-map
 sitemap:
   - label: Connect
     path: page/connect
@@ -34,7 +8,7 @@ sitemap:
         path: "page/connect#time"
       - label: What We Believe
         path: "page/connect#believe"
-      - label: Worship
+      - label: Worship [m]
         path: "page/connect#worship"
       - label: Staff
         path: "page/connect#staff"
@@ -42,17 +16,17 @@ sitemap:
     path: page/grow
     submenu:
       - label: "Life Stage"
-        path: "page/grow#life-stage"
+        path: "page/life-stage"
       - label: "Faith @ Home"
-        path: "page/grow#faith-at-home"
+        path: "page/faith-at-home"
       - label: Ways We Serve
-        path: "page/grow#ways-we-serve"
-      - label: Volunteer
-        path: "page/grow#volunteer"
+        path: "page/ways-we-serve"
+      - label: Volunteer [m]
+        path: "page/volunteer"
       - label: Give
-        path: "page/grow#give"
-      - label: Learning
-        path: "page/grow#learning"
+        path: "http://donate.mattisave.org"
+      - label: Learning [m]
+        path: "page/learning"
   - label: Resources
     path: page/resources
     submenu:

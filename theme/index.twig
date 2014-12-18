@@ -1,8 +1,5 @@
 {% include '_header.twig' %}
 
-{# commented... 
-{{ calendar('frontpage') }} 
-#}
 
 {#
 <div>
@@ -21,90 +18,65 @@
 {{ sermons() }} 
 #}
 
-
-...
-
 <div class="container-fluid hero-div overlay-{{ record.overlay }}" >
-
-
 <img src="{{ record.image|image() }}"  />
-
-<!-- http://evanhahn.com/life-changing-css/ -->
-<!-- <div style="position:absolute;top:50%;transform:translateY(-90%);left:50%;color:white;font-size:24px;text-transform:uppercase;font-weight:bold;letter-spacing:.3em;">grow</div> -->
-<!-- http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ --> 
-
-
-<span class="overlay-text">grow</span>
-
-
-
+<span class="overlay-text">Mattis Avenue Free Methodist Church</span>
 </div>
 
 
 <div class="page">
 <div class="container">
-
-<!-- <span class="glyphicon glyphicon-search"></span><span class="glyphicon glyphicon-search"></span><span class="glyphicon glyphicon-search"></span><span class="glyphicon glyphicon-search"></span>
--->
-
-{# commented... 
-{{ dump(record) }} 
-#}
-
-<!-- Here we want to say... -->
-
-<!-- Welcome (LHS) --> 
-<!-- ... get snippet from Welcome page? -->
-
-<!-- Upcoming events (LHS) -->
-
-<!-- General Info | RHS --> 
-<!-- Recent Sermons | RHS --> 
-
-
-<div class="page-section grow-page">
-
-
-<div class="section-header">
-<h1>Grow Your Community</h1>
-<p>At Mattis Avenue, we believe it's crucial to continue to grow your spiritual life. This can be your personal relationship with Christ, with with church body, as well as the community around us.</p>
-</div>
+<div class="page-section home-page">
 
 <div class="row">
-<div class="col-md-4">
-<h3>Life Stage</h3>
-<p>Ways to grow at any stage of your life, whether you're a young adult, a family, or a young kid; we have a place for you to plug yourself in.</p>
-<a href="#" class="btn btn-default">Go There</a>
+<div class="col-md-7">
+<h3 class='light'>Welcome</h3>
+<h2>Welcome to Mattis Avenue Free Methodist Church!</h2>
+<p>
+The church does not exist for the sake of the church.  It exists for the sake of the world.  We believe the church should be a force of irresistible influence in its community.  By building bridges of real spiritual integrity between itself and an increasingly skeptical society, we possess the power and authority to be a catalyst for change and an engine of influence for God.  Jesus said the crowning work of authentic ministry is when the poor have the gospel brought to them.  Hence, the destitute and disenfranchised of the world deserve our particular care.
+</p>
+<p>Sincerely,<br/><br />
+Herb Coates, Pastor
+<br />
+<br />
+
+<a href="#" class="btn btn-default">Read the full letter</a>
+</p>
+
+<h3 class='light'>Upcoming Events</h3>
+<div>
+{% for event in calendar('frontpage', 3) %}
+<div >
+<h2> {{ event.summary }} </h2>
+{% set loc = event.location | preg_split("|, (?=\\d)|", 2) %}
+<h4> {{ event.start.dateTime|date("m/d/Y / g:ia", "America/Chicago") }}, at <em><a href="http://maps.google.com/?q={{ loc[1] }}">{{ loc[0] }}</a></em></h4>
+<p> {{ event.description }} </p>
 </div>
-<div class="col-md-4">
-<h3>Faith @ Home</h3>
-<p>Insert blurb about Faith at Home here.</p>
-<a href="#" class="btn btn-default">Go There</a>
-</div>
-<div class="col-md-4">
-<h3>Ways We Serve</h3>
-<p>Insert blurb about Ways we Serve here.</p>
-<a href="#" class="btn btn-default">Go There</a>
-</div>
+{% if loop.last == false %}
+<hr />
+{%  endif %}
+{% endfor %}
 </div>
 
+</div>
+<div class="col-md-4 col-md-offset-1">
+<h3 class='light'>General Info</h3>
+
+<h5>Services</h5>
+<p>Worship services are held Sundays at 10:30AM. We'd love to have you join us!</p>
 <hr />
 
-<div class="row">
-<div class="col-md-4">
-<h3>Ministry Teams</h3>
-<p>Insert blurb about ministry teams here.</p>
-<a href="#" class="btn btn-default">Go There</a>
-</div>
-<div class="col-md-4">
-<h3>Give</h3>
-<p>Online giving is available.</p>
-<a class="btn btn-default" href="http://donate.mattisave.org/">Go There</a>
-</div>
-<div class="col-md-4">
-<h3>Learning</h3>
-<p>Insert blurb about learning here.</p>
-<a href="#" class="btn btn-default">Go There</a>
+<h5>English Conversation Classes</h5>
+<p>English Conversation classes are held multiple times each week.</p>
+<hr />
+
+<h3 class='light'>Recent Sermons</h3>
+{% for sermon in sermons(false, 3) %}
+<h5>{{sermon.title }}</h5>
+<p>By <em>{{sermon.speaker}}</em> on {{ sermon.date | date("M") }} {{ sermon.date | date("j") }}, {{ sermon.date | date("Y") }}</p>
+{% if loop.last == false %} <hr /> {%  endif %}
+{% endfor %}
+
 </div>
 </div>
 

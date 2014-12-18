@@ -35,6 +35,15 @@ body p {
     @extend .subhead;
   }
 
+  h5 {
+    @extend .headline3;
+  }
+
+  h3.light {
+    @extend  .headline2;
+    @extend .light;
+  }
+
   /* a section header - should contain a <h1> and a <p> */
   .section-header {
     @extend .container;

@@ -55,7 +55,9 @@ class Extension extends \Bolt\BaseExtension
         return "Sermons 123";
     }
 
-    public function sermonList()
+    # render == true -- return rendered twig, false -- return array
+    # coutn = -1 -- return all, otherwise - return $len items
+    public function sermonList($render=true, $count=-1)
     {
         // Probably doesn't belong here, but...
         $this->addJquery();
@@ -91,12 +93,24 @@ class Extension extends \Bolt\BaseExtension
             $result = !(!$v['audio'] || !file_exists($sermons_basepath . '/' . $v['audio']));
             return !(!$v['audio'] || !file_exists($sermons_basepath . '/' . $v['audio']));
         });
+
         $sermons = array_values($sermons);
+
+        // limit 
+        if ($count != -1) {
+          $sermons = array_slice($sermons, 0, $count);
+        }
+
 
         // FIXME: We shouldn't have to hardcode the path here
         array_walk($sermons, function(&$v, $k) {
             $v['audio'] = '/bolt/app/extensions/MafmcPodcast/sermons/data/' . $v['audio'];
         });
+
+        // return data structure?
+        if (! $render) {
+          return $sermons;
+        }
 
 
         $this->app['twig.loader.filesystem']->addPath(__DIR__, 'MafmcSermons');
@@ -106,7 +120,6 @@ class Extension extends \Bolt\BaseExtension
 
        // FIXME: add caching
        return new \Twig_Markup($html, 'UTF-8');
-
     }
 
     /* Will return sermons in order by series, newest series first */

@@ -36,7 +36,13 @@ class Extension extends \Bolt\BaseExtension
     {
         $this->app['htmlsnippets'] = true;
         $this->addTwigFunction('calendar', 'calendarList');
+        $this->addTwigFilter('preg_split', 'pregSplit');
         return;
+    }
+
+    function pregSplit($item, $pat, $limit) {
+      // return array("$item", "$pat", "$limit");
+        return preg_split($pat, $item, $limit);
     }
 
     // Notes, 
@@ -49,7 +55,7 @@ class Extension extends \Bolt\BaseExtension
 
     // $calendarName -> the name from config.yml
     // $optArguments -> see https://developers.google.com/google-apps/calendar/v3/reference/events/list for full list
-    public function calendarList($calendarName, $optArgs = array(), $useDefaults = true ) {
+    public function calendarList($calendarName, $count = -1, $optArgs = array(), $useDefaults = true ) {
     
         // This should really throw an error
         if (!is_array($optArgs)) {
@@ -59,13 +65,20 @@ class Extension extends \Bolt\BaseExtension
         // use nicer default values
         if ($useDefaults) {
             // show no more than 10 events by default
-            $this->default_value($optArgs['maxResults'], 10);
+            // error_log($optArgs['maxResults']);
+            // $this->default_value($optArgs['maxResults'], 10);
+            // error_log($optArgs['maxResults']);
             
             // sort by start time ascending
             $this->default_value($optArgs['orderBy'], 'startTime');
 
             // expand recurring events into single event instances
             $this->default_value($optArgs['singleEvents'], true);
+
+            // default to not show any events before today
+            $t = new \DateTime(NULL);
+            error_log("Datetime is: " . $t->format(\DateTime::RFC3339));
+            $this->default_value($optArgs['timeMin'], $t->format(\DateTime::RFC3339) );
         }
 
 
@@ -167,19 +180,27 @@ class Extension extends \Bolt\BaseExtension
         while(true) {
             foreach ($events->getItems() as $event) {
                 $ret[] = $event;
-                error_log( $event->getSummary());
+                if ($count > 0 && $count == count($ret)) {
+                  return $ret;
+                }
+                error_log( "Got event: " . $event->getSummary());
             }
+            // break; 
+
+            // FIXME: re-enable this?
             $pageToken = $events->getNextPageToken();
             if ($pageToken) {
-                $optArgs['pageToken'] = $pageToken;
-                // $optParams = array('pageToken' => $pageToken);
-                $events = $svc->events->listEvents($calendar, $optArgs);
+            $optArgs['pageToken'] = $pageToken;
+            // $optParams = array('pageToken' => $pageToken);
+            error_log("getting more events...");
+            $events = $svc->events->listEvents($calendar, $optArgs);
             } else {
-                break;
+            break;
             }
         }
 
        return $ret;
+
        $html = var_export($ret, true);
        return new \Twig_Markup($html, 'UTF-8');
     }
