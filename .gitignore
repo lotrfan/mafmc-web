@@ -1,13 +1,3 @@
-bolt/*
-!bolt/app
-bolt/app/*
-!bolt/app/extensions
-bolt/app/*
-!bolt/app/extensions
-bolt/app/extensions/*
-!bolt/app/extensions/MafmcPodcast
-!bolt/app/extensions/MafmcCalendar
-
 *.sw*
 .vagrant
 **/.DS_Store

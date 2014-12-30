@@ -1,43 +1,35 @@
 <?php
-/**
- * MafmcCalendar extension for Bolt.
- *
- * @author Jacob Tolar <jacob@sheckel.net>
- */
 
-namespace MafmcCalendar;
+namespace Bolt\Extension\JacobTolar\GoogleCalendar;
 
-// FIXME: this is not great...
-require dirname(__FILE__)  . '/' . 'vendor/autoload.php';
+use Bolt\Application;
+use Bolt\BaseExtension;
 
-error_log(var_export(get_declared_classes(), true));
+# require dirname(__FILE__)  . '/' . 'vendor/autoload.php';
+#
+$path = dirname(__FILE__ ) . '/' . 'vendor/google/apiclient/src/';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 
-class Extension extends \Bolt\BaseExtension
+require_once   'Google/Auth/AssertionCredentials.php'; 
+require_once   'Google/Client.php'; 
+require_once   'Google/Service.php'; 
+require_once   'Google/Service/Calendar.php'; 
+
+class Extension extends BaseExtension
 {
+  
 
-    public function info()
-    {
-        return array(
-            'name' => "MafmcCalendar",
-            'description' => "Calendar events for MAFMC",
-            'author' => "Jacob Tolar",
-            'link' => "http://bolt.cm",
-            'version' => "0.1",
-            'required_bolt_version' => "1.2.0",
-            'highest_bolt_version' => "1.4.0",
-            'type' => "General",
-            'first_releasedate' => null,
-            'latest_releasedate' => null,
-            'priority' => 10
-        );
-    }
-
-    public function initialize()
-    {
+    public function initialize() {
         $this->app['htmlsnippets'] = true;
         $this->addTwigFunction('calendar', 'calendarList');
         $this->addTwigFilter('preg_split', 'pregSplit');
         return;
+
+    }
+
+    public function getName()
+    {
+        return "GoogleCalendar";
     }
 
     function pregSplit($item, $pat, $limit) {
@@ -45,16 +37,7 @@ class Extension extends \Bolt\BaseExtension
         return preg_split($pat, $item, $limit);
     }
 
-    // Notes, 
-    // To get this working: 
-    // - New application
-    // - Authorize the application in GAFYD
-    // e.g. here: https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOauthClients
-    // e.g. here: https://console.developers.google.com/project/gcal-api-access/apiui/credential
-    // - ... use 'sub' as ??
 
-    // $calendarName -> the name from config.yml
-    // $optArguments -> see https://developers.google.com/google-apps/calendar/v3/reference/events/list for full list
     public function calendarList($calendarName, $count = -1, $optArgs = array(), $useDefaults = true ) {
     
         // This should really throw an error
@@ -87,7 +70,7 @@ class Extension extends \Bolt\BaseExtension
         $appName      = $this->config['api_information']['application_name'];
         $appEmail     = $this->config['api_information']['application_email'];
         $appKeyFile   = $this->config['api_information']['keyfile'];
-        $calendars    = $this->config['api_information']['calendars'];
+        $calendars    = $this->config['calendars'];
 
         error_log("calendars are:");
         error_log(var_export($calendars,true));
@@ -120,23 +103,31 @@ class Extension extends \Bolt\BaseExtension
             $client->setAccessToken($_SESSION['service_token']);
         }
 
+        $client->setAccessToken('{"access_token":"ya29.4ADDu7g-qCmVAagvxC2hPIQaA6kcNqULFz_vTG3-wJeO9Fgc4QPLw0XGNsYLJGwX3JEG6RvHbzLs1BQ6Lv2UYRP3TKbYoI-lzdRhRIDFfBuqPmt9HMrHX8Bg","expires_in":3600,"created":1418884050}');
+       // {"access_token":"ya29.4ADDu7g-qCmVAagvxC2hPIQaA6kcNqULFz_vTG3-wJeO9Fgc4QPLw0XGNsYLJGwX3JEG6RvHbzLs1BQ6Lv2UYRP3TKbYoI-lzdRhRIDFfBuqPmt9HMrHX8Bg","expires_in":3600,"created":1418884050}
+
         // set up credentials used to access calendar
+
+        
+        error_log("Calendar: potentially refresh credentials");
+        if($client->getAuth()->isAccessTokenExpired()) {
+
         $cred = new \Google_Auth_AssertionCredentials(
           $appEmail,
           array('https://www.googleapis.com/auth/calendar'),
           $key
         );
+
         $cred->sub = $calendarUser;
         $cred->prn = $calendarUser;
         $client->setAssertionCredentials($cred);
-        
-        error_log("Calendar: potentially refresh credentials");
-        if($client->getAuth()->isAccessTokenExpired()) {
+
             error_log("Refreshing token!!!");
             $client->getAuth()->refreshTokenWithAssertion($cred);
             error_log("Token refreshed!!!");
         }
         error_log("DONE refreshing credentials!");
+	error_log($client->getAccessToken());
 
         // error_log("getting token");
         // $_SESSION['service_token'] = $client->getAccessToken();
@@ -212,5 +203,10 @@ function default_value(&$var, $default) {
 }
 
 }
+
+error_log("more done");
+
+
+
 
 

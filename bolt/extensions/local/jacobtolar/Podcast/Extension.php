@@ -1,13 +1,11 @@
 <?php
-/**
- * MafmcPodcast extension for Bolt.
- *
- * @author Jacob Tolar <jacob@sheckel.net>
- * @author Jeffrey Tolar <jeffrey@tolarnet.us>
- */
 
-namespace MafmcPodcast;
+namespace Bolt\Extension\JacobTolar\Podcast;
 
+use Bolt\Application;
+use Bolt\BaseExtension;
+
+// needed?
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,47 +14,23 @@ define('SERMON_LIST_CACHE', 'cache.html'); # (Relative to SERMON_LIST_BASE)
 define('SERMON_LIST_CACHE_PODCAST', 'podcast.cache.xml'); # (Relative to SERMON_LIST_BASE)
 define('SERMON_LIST_CACHE_INVALID', 'lastUpload.txt'); # (Relative to SERMON_LIST_BASE). Should be updated each time a file is uploaded (signals a rebuild of the cache)
 
-class Extension extends \Bolt\BaseExtension
+class Extension extends BaseExtension
 {
+  
 
-    public function info()
-    {
-        return array(
-            'name' => "MafmcPodcast",
-            'description' => "Sermons for MAFMC",
-            'author' => "Jacob Tolar",
-            'link' => "http://bolt.cm",
-            'version' => "0.1",
-            'required_bolt_version' => "1.2.0",
-            'highest_bolt_version' => "1.4.0",
-            'type' => "General",
-            'first_releasedate' => null,
-            'latest_releasedate' => null,
-            'priority' => 10
-        );
-    }
+    public function initialize() {
+        // $this->addCss('assets/extension.css');
+        // $this->addJavascript('assets/start.js', true);
 
-    public function initialize()
-    {
         $this->app['htmlsnippets'] = true;
-
-        /*
-        if (empty($this->config['color'])) {
-            $this->config['color'] = "red";
-        }
-        */
         $this->addTwigFunction('sermons', 'sermonList');
-
-        return;
     }
 
-    public function sermons(Request $request)
+    public function getName()
     {
-        return "Sermons 123";
+        return "Podcast";
     }
 
-    # render == true -- return rendered twig, false -- return array
-    # coutn = -1 -- return all, otherwise - return $len items
     public function sermonList($render=true, $count=-1)
     {
         // Probably doesn't belong here, but...
@@ -139,4 +113,11 @@ class Extension extends \Bolt\BaseExtension
 
         return $sermons;
     }
+
 }
+
+
+
+
+
+

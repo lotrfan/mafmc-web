@@ -1,0 +1,27 @@
+{
+    "name": "jacobtolar/Podcast",
+    "description": "Support a podcast on your Bolt site",
+    "type": "bolt-extension",
+    "require": {
+	"phansys/getid3": "2.1.*@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jacob Tolar", 
+            "email": "jacob@sheckel.net"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\JacobTolar\\Podcast\\": ""
+        }
+    },
+    
+    "extra": {
+        "bolt-assets": "assets"
+    }
+}

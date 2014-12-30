@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+BOLT_URL='https://bolt.cm/distribution/bolt-latest.tar.gz'
 echo ===========================
 echo Installing Packages
 echo ===========================
@@ -47,16 +48,12 @@ if [ ! -f bolt/index.php ]; then
 mkdir -p bolt
 cd bolt
 echo "Downloading bolt..."
-wget http://bolt.cm/distribution/bolt_latest.tgz -O - | tar -xzvf  -
-rm -rf app/config
+wget -nv $BOLT_URL -O - | tar --strip-components=1 -xzvf  -
 cd ..
-ln  -s `pwd`/config `pwd`/bolt/app/config
-ln  -s `pwd`/theme `pwd`/bolt/theme/mafmc
-
 fi
 
 
-cd theme
+cd bolt/theme/mafmc
 # 
 echo ===========================
 echo Installing npm packages
@@ -82,31 +79,32 @@ sudo -u vagrant grunt compass
 echo ===========================
 echo installing composer
 echo ===========================
-sudo wget https://getcomposer.org/composer.phar -O /usr/local/bin/composer.phar
+sudo wget -nv https://getcomposer.org/composer.phar -O /usr/local/bin/composer.phar
 sudo chmod 755 /usr/local/bin/composer.phar
 
 echo ===========================
 echo installing extension dev files
 echo ===========================
-cd /vagrant/bolt/app/extensions/MafmcCalendar
+cd /vagrant/bolt/extensions/local/jacobtolar/GoogleCalendar
 /usr/local/bin/composer.phar install
-cd -
+cd /vagrant/bolt/extensions/local/jacobtolar/Podcast
+/usr/local/bin/composer.phar install
 
 echo ==============================
 echo installing div plugin for Bolt -- see http://ckeditor.com/addon/div
 echo ==============================
 
 cd /vagrant
-wget http://download.ckeditor.com/div/releases/div_4.4.6.zip
+wget -nv http://download.ckeditor.com/div/releases/div_4.4.6.zip
 unzip div_4.4.6.zip
 mv div bolt/app/view/lib/ckeditor/plugins
 
 # this needs to be tested...
-sed -i "s/\(config.extraPlugins = .*\)'\1,div'" bolt/app/view/js/bolt.js
-sed -i "s/\(.*paragraph.*NumberedList.*)]/\1, 'CreateDiv']/" bolt/app/view/js/bolt.js
+sed -i "s/\(config.extraPlugins = '.*\)';/\1,div';/" bolt/app/view/js/bolt.js
+sed -i "s/\(.*paragraph.*NumberedList.*\)]/\1, 'CreateDiv']/" bolt/app/view/js/bolt.js
 cd -
 
 
 echo ===========================
-echo Bolt should be up and running at http://localhost:10000/bolt
+echo Bolt should be up and running at http://localhost:10007/bolt
 echo ===========================

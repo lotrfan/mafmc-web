@@ -1,0 +1,4 @@
+.DS_*
+*.p12
+config.yml
+vendor

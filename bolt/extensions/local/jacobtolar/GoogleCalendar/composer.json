@@ -1,0 +1,28 @@
+{
+    "name": "jacobtolar/GoogleCalendar", 
+    "description": "Use Google Calendar to show events in your Twig templates",
+    "type": "bolt-extension",
+    "require": {
+      "bolt/bolt": ">=2.0.0,<3.0.0",
+    	"google/apiclient": "1.0.*@beta"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jacob Tolar", 
+            "email": "jacob@sheckel.net"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\JacobTolar\\GoogleCalendar\\": ""
+        }
+    },
+    
+    "extra": {
+        "bolt-assets": "assets"
+    }
+}
