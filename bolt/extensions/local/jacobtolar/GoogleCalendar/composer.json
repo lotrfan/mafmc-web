@@ -3,7 +3,6 @@
     "description": "Use Google Calendar to show events in your Twig templates",
     "type": "bolt-extension",
     "require": {
-      "bolt/bolt": ">=2.0.0,<3.0.0",
     	"google/apiclient": "1.0.*@beta"
     },
     "license": "MIT",

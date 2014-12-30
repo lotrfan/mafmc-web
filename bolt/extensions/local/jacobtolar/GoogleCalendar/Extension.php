@@ -72,8 +72,19 @@ class Extension extends BaseExtension
         $appKeyFile   = $this->config['api_information']['keyfile'];
         $calendars    = $this->config['calendars'];
 
+        error_log($calendarUser);
+        error_log($appName);
+        error_log($appEmail);
+        error_log($appKeyFile);
+        error_log($calendarName);
         error_log("calendars are:");
-        error_log(var_export($calendars,true));
+        error_log($this->config['test1']['item1']);
+        error_log($this->config['test1']['item2']);
+        error_log($this->config['calendars']['frontpage']['id']);
+        error_log($this->config['calendars']['frontpage']['id']);
+        error_log($this->config['calendars']['other']['id']);
+        error_log("calendars are:....");
+        error_log(var_export($this->config,true));
         error_log(var_export($calendars[$calendarName],true));
         error_log("done...");
         // error or exception
