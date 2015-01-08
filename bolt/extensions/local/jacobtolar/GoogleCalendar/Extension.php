@@ -114,9 +114,8 @@ class Extension extends BaseExtension
             $client->setAccessToken($_SESSION['service_token']);
         }
 
-        $client->setAccessToken('{"access_token":"ya29.4ADDu7g-qCmVAagvxC2hPIQaA6kcNqULFz_vTG3-wJeO9Fgc4QPLw0XGNsYLJGwX3JEG6RvHbzLs1BQ6Lv2UYRP3TKbYoI-lzdRhRIDFfBuqPmt9HMrHX8Bg","expires_in":3600,"created":1418884050}');
-       // {"access_token":"ya29.4ADDu7g-qCmVAagvxC2hPIQaA6kcNqULFz_vTG3-wJeO9Fgc4QPLw0XGNsYLJGwX3JEG6RvHbzLs1BQ6Lv2UYRP3TKbYoI-lzdRhRIDFfBuqPmt9HMrHX8Bg","expires_in":3600,"created":1418884050}
-
+        // should read from a cached location
+        // $client->setAccessToken('{"access_token":"...","expires_in":...,"created":...}');
         // set up credentials used to access calendar
 
         
